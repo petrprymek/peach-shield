@@ -21,7 +21,7 @@ def get_location(city_name,country)->float:
        return None
 
 def get_temperature(latitude, longitude)->float:
-    url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current_weather=true"
+    url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current_weather=true&timezone=Europe%2FBerlin"
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -43,8 +43,8 @@ def store_temperature(temperature)->None:
 
 def main():
 
-    country = "Česko"
-    city_name = "Praha"
+    country = "Czechia" ##Timezone is Europe/Berlin 
+    city_name = "Prague"
     latitude, longitude = get_location(city_name,country)
     ##latitude = 50.088
     ##longitude = 14.4208
